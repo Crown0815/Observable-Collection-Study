@@ -1,0 +1,7 @@
+language: csharp
+solution: src/ObservableCollectionStudy.sln
+install:
+  - dotnet restore src/ObservableCollectionStudy.sln
+script:
+  - dotnet build /p:Configuration=Release src/ObservableCollectionStudy.sln
+  - dotnet test /p:Configuration=Release src/ObservableCollectionStudy.sln
