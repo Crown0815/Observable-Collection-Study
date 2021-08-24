@@ -1,8 +1,8 @@
 language: csharp
 mono: none
-solution: src/ObservableCollectionStudy.sln
 install:
-  - dotnet restore src/ObservableCollectionStudy.sln
+  - cd src
+  - dotnet restore
 script:
-  - dotnet build /p:Configuration=Release src/ObservableCollectionStudy.sln
-  - dotnet test /p:Configuration=Release src/ObservableCollectionStudy.sln
+  - dotnet build
+  - dotnet test /p:Configuration=Release ObservableCollectionStudy.csproj
