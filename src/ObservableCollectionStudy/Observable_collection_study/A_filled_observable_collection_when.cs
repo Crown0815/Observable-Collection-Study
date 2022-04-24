@@ -26,7 +26,7 @@ namespace ObservableCollectionStudy.Observable_collection_study
             var anotherItem = new Item();
             _collection.Add(anotherItem);
             var eventArgs = _monitor.OccurredEvents.Single().CollectionChangedEventArgs();
-                
+
             eventArgs.Action.Should().Be(NotifyCollectionChangedAction.Add);
             eventArgs.NewItems!.Should<Item>().Equal(anotherItem);
             eventArgs.OldItems.Should().BeNull();
