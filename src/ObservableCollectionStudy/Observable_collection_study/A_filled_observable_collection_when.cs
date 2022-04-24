@@ -33,6 +33,20 @@ namespace ObservableCollectionStudy.Observable_collection_study
             eventArgs.OldStartingIndex.Should().Be(-1);
             eventArgs.NewStartingIndex.Should().Be(2);
         }
+
+        [Fact]
+        public void an_item_is_inserted_raises_event_args_for_add_action()
+        {
+            var anotherItem = new Item();
+            _collection.Insert(1, anotherItem);
+            var eventArgs = _monitor.OccurredEvents.Single().CollectionChangedEventArgs();
+
+            eventArgs.Action.Should().Be(NotifyCollectionChangedAction.Add);
+            eventArgs.NewItems!.Should<Item>().Equal(anotherItem);
+            eventArgs.OldItems.Should().BeNull();
+            eventArgs.OldStartingIndex.Should().Be(-1);
+            eventArgs.NewStartingIndex.Should().Be(1);
+        }
         
         [Fact]
         public void an_item_is_removed_raises_event_args_for_remove_action()
